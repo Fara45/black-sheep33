@@ -1,7 +1,7 @@
 
 var fixrectangle
 var movingRectangle
-
+var bro
 
 function setup() {
   createCanvas(800,400);
@@ -9,22 +9,25 @@ function setup() {
   movingRectangle =createSprite(400,200,80,30);
   fixrectangle.shapeColor="green";
   movingRectangle.shapeColor="blue";
+  bro=createSprite(200, 100, 10, 10);
+  bro.shapeColor= "white"
 }
 
 function draw() {
   background(0);  
   movingRectangle.x=mouseX;
   movingRectangle.y=mouseY;
-  if(movingRectangle.x - fixrectangle.x < movingRectangle.width/2 + fixrectangle.width/2 && fixrectangle.x - movingRectangle.x < movingRectangle.width/2 + fixrectangle.width/2
-    && movingRectangle.y - fixrectangle.y < movingRectangle.height/2 + fixrectangle.height/2 && fixrectangle.y - movingRectangle.y < movingRectangle.height/2 + fixrectangle.height/2){
+ 
+  if(isTouching(bro,movingRectangle)){
 
   
-  fixrectangle.shapeColor="red";
+  bro.shapeColor="red";
   movingRectangle.shapeColor="red";
   } else
   {
-    fixrectangle.shapeColor="green";
+    bro.shapeColor="white";
     movingRectangle.shapeColor="blue";
  }
   drawSprites();
 }
+
